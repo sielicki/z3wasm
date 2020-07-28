@@ -54,10 +54,10 @@ void sudoku() {
   solver s(c);
 
   auto board = create_board(c, s);
-  //apply_standard_sudoku(c, s, board);
+  apply_standard_sudoku(c, s, board);
 
-  //std::cout << s << std::endl;
-  //std::cout << s.to_smt2() << std::endl;
+  std::cout << s << std::endl;
+  std::cout << s.to_smt2() << std::endl;
 
   int instance[9][9] = {
       {0, 0, 0, 0, 9, 4, 0, 3, 0}, {0, 0, 0, 5, 1, 0, 0, 0, 7},
@@ -73,8 +73,6 @@ void sudoku() {
 
   //std::cout << "added instance reqs" << std::endl;
   auto res = s.check();
-  //std::cout << res << std::cout;
-  std::cout << "didn't get here? 1" << std::endl;
 
   switch (res) {
   case sat:
@@ -87,7 +85,6 @@ void sudoku() {
     std::cout << "unknown\n";
     break;
   }
-  std::cout << "didn't get here? 2" << std::endl;
 }
 
 int main() {
